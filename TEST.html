@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weer widget voor Hasselt</title>
+	<!-- Voeg de stylesheet toe voor de widget -->
+	<link rel="stylesheet" href="https://weatherwidget.io/css/style.min.css">
+	<style>
+		.weatherwidget-io {
+			width: 100%;
+			max-width: 410px;
+		}
+	</style>
+</head>
+<body>
+	<!-- Voeg de widget toe -->
+	<a class="weatherwidget-io" href="https://forecast7.com/nl/50d935d33/hasselt/" data-label_1="HASSELT" data-label_2="WEER" data-theme="original">HASSELT WEER</a>
+
+	<!-- Voeg het script toe om de widget te laden -->
+	<script>
+	!function(d,s,id){
+		var js,fjs=d.getElementsByTagName(s)[0];
+		if(!d.getElementById(id)){
+			js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';
+			fjs.parentNode.insertBefore(js,fjs);
+		}
+	}(document,'script','weatherwidget-io-js');
+
+    // voeg de code toe om screenshot te maken
+    setTimeout(function(){
+      const body = document.querySelector('body');
+      body.style.width = "100%";
+      body.style.maxWidth = "410px";
+      html2canvas(body).then(canvas => {
+        const img = canvas.toDataURL('image/jpeg');
+        const a = document.createElement('a');
+        a.href = img;
+        a.download = 'weer.jpg';
+        document.body.appendChild(a);
+        a.click();
+      });
+    }, 5000); // wacht 5 seconden om screenshot te maken
+	</script>
+
+    <!-- Voeg het html2canvas script toe -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+</body>
+</html>
